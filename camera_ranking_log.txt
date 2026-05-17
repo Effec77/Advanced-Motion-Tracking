@@ -1,0 +1,117 @@
+================================================================================
+CAMERA DIFFICULTY SCORING PIPELINE
+================================================================================
+
+Configuration:
+  - Base directory: D:\ValidationTesting
+  - Shoots: ['Shoot1', 'Shoot2', 'Shoot3']
+  - Cameras per shoot: 7
+  - Expected videos: 21
+  - Target joints: [11, 12, 13, 14, 15, 16]
+  - Score weights: {'mean_jitter': 0.3, 'mean_spike': 0.2, 'mean_limb_var': 0.2, 'root_accel': 0.15, 'jerk': 0.15}
+
+Initializing models...
+[OK] Models initialized (CUDA)
+
+--------------------------------------------------------------------------------
+Processing Videos
+--------------------------------------------------------------------------------
+
+Shoot1:
+  CAM0: Processing...
+    OK (27.96s)
+  CAM1: Processing...
+    OK (29.49s)
+  CAM2: Processing...
+    OK (30.84s)
+  CAM3: Processing...
+    OK (26.36s)
+  CAM4: Processing...
+    OK (29.10s)
+  CAM5: Processing...
+    OK (29.73s)
+  CAM6: Processing...
+    OK (30.50s)
+
+Shoot2:
+  CAM0: Processing...
+    OK (32.00s)
+  CAM1: Processing...
+    OK (32.06s)
+  CAM2: Processing...
+    OK (33.07s)
+  CAM3: Processing...
+    OK (32.72s)
+  CAM4: Processing...
+    OK (33.08s)
+  CAM5: Processing...
+    OK (30.33s)
+  CAM6: Processing...
+    OK (32.09s)
+
+Shoot3:
+  CAM0: Processing...
+    OK (31.12s)
+  CAM1: Processing...
+    OK (30.15s)
+  CAM2: Processing...
+    OK (30.46s)
+  CAM3: Processing...
+    OK (31.74s)
+  CAM4: Processing...
+    OK (32.53s)
+  CAM5: Processing...
+    OK (30.30s)
+  CAM6: Processing...
+    OK (32.00s)
+
+--------------------------------------------------------------------------------
+[OK] Processed 21 videos in 647.64s
+     Average: 30.84s per video
+
+Normalizing metrics...
+[OK] Normalization complete
+
+Computing difficulty scores...
+[OK] Scores computed
+
+Saving results to camera_difficulty_scores.csv...
+[OK] Results saved to camera_difficulty_scores.csv
+
+================================================================================
+CAMERA DIFFICULTY RANKING SUMMARY
+================================================================================
+
+Score Statistics:
+  - Mean:   0.3162
+  - Std:    0.2580
+  - Min:    0.0299
+  - Max:    0.8819
+  - Median: 0.2539
+
+TOP 5 HARDEST CAMERAS (Highest Difficulty):
+--------------------------------------------------------------------------------
+Rank   Shoot      Camera     Score      Path
+--------------------------------------------------------------------------------
+1      Shoot3     CAM6       0.8819     CAM6.avi
+2      Shoot1     CAM6       0.8776     CAM6.avi
+3      Shoot2     CAM6       0.8447     CAM6.avi
+4      Shoot2     CAM0       0.4953     CAM0.avi
+5      Shoot2     CAM1       0.4722     CAM1.avi
+
+BOTTOM 5 EASIEST CAMERAS (Lowest Difficulty):
+--------------------------------------------------------------------------------
+Rank   Shoot      Camera     Score      Path
+--------------------------------------------------------------------------------
+17     Shoot1     CAM3       0.1134     CAM3.avi
+18     Shoot1     CAM5       0.1104     CAM5.avi
+19     Shoot1     CAM1       0.0928     CAM1.avi
+20     Shoot1     CAM4       0.0429     CAM4.avi
+21     Shoot1     CAM0       0.0299     CAM0.avi
+
+================================================================================
+[OK] CAMERA DIFFICULTY RANKING COMPLETE
+================================================================================
+
+Results saved to: D:\GitHub\3D-Posture-Shot-Repo\camera_difficulty_scores.csv
+
